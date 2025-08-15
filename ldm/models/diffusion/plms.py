@@ -168,10 +168,16 @@ class PLMSSampler(object):
                                     object_positions=object_positions, t = index1)
                 
                 
-                loss = loss2 +  loss1  +loss3 * loss_scale * 3
+                loss = loss2 +  loss1 + loss3 * loss_scale * 3
 
                 print('loss', loss, loss1, loss2, loss3* loss_scale *3,loss_self*loss_scale/2 )
-                grad_cond = torch.autograd.grad(loss.requires_grad_(True), [x])[0]  
+                # grad_cond = torch.autograd.grad(loss.requires_grad_(True), [x])[0]  
+                grad_cond = torch.autograd.grad(
+                    loss,
+                    [x],
+                    retain_graph=True,
+                    allow_unused=True
+                )[0]
                 
 
             
