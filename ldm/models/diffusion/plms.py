@@ -139,7 +139,8 @@ class PLMSSampler(object):
     
         loss_threshold = 0.1
         max_index = 10
-        x = deepcopy(input["x"]) 
+        # x = deepcopy(input["x"]) 
+        x = input["x"].clone().detach().requires_grad_(True)
         iteration = 0
         loss = torch.tensor(10000)
         input["timesteps"] = ts

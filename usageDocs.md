@@ -24,6 +24,8 @@ wget https://hf-mirror.com/gligen/gligen-generation-text-box/resolve/main/diffus
 
 # run
 
+跑到最后计算loss的时候会报错
+
 ```bash
 unset PYTORCH_CUDA_ALLOC_CONF
 python guide_gligen.py --ckpt gligen_checkpoints/diffusion_pytorch_model.bin --file_save counting_500  --type counting --box_pickle ./data_evaluate_LLM/gpt_generated_box/counting.p
