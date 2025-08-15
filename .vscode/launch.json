@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "调试 ldm_layout",
+            "type": "python",         // 推荐使用 "python" 而不是 "debugpy"
+            "request": "launch",
+            "program": "guide_gligen.py",
+            "console": "integratedTerminal",
+            "cwd": "/home/sxm/flux-workspace/layout-to-image-zhuanlan/attention-refocusing",
+            "python": "/home/sxm/anaconda3/envs/ldm_layout/bin/python3",
+            "args": [
+                "--ckpt", "gligen_checkpoints/diffusion_pytorch_model.bin",
+                "--file_save", "counting_500",
+                "--type", "counting",
+                "--box_pickle", "./data_evaluate_LLM/gpt_generated_box/counting.p"
+            ],
+            "env": {
+                "PYTORCH_CUDA_ALLOC_CONF": ""
+            }
+        }
+    ]
+}
